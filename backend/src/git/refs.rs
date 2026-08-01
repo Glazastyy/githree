@@ -36,6 +36,7 @@ pub fn list_refs(local_path: &Path) -> Result<RefsResponse, AppError> {
         .tag_names(None)?
         .iter()
         .flatten()
+        .flatten()
         .map(|tag| tag.to_string())
         .collect::<Vec<_>>();
     tags.sort();
@@ -44,7 +45,13 @@ pub fn list_refs(local_path: &Path) -> Result<RefsResponse, AppError> {
     let default_branch = repo
         .find_reference("refs/remotes/origin/HEAD")
         .ok()
-        .and_then(|reference| reference.symbolic_target().map(|value| value.to_string()))
+        .and_then(|reference| {
+            reference
+                .symbolic_target()
+                .ok()
+                .flatten()
+                .map(|value| value.to_string())
+        })
         .and_then(|name| name.rsplit('/').next().map(|part| part.to_string()))
         .or_else(|| branches.first().cloned())
         .unwrap_or_else(|| "main".to_string());

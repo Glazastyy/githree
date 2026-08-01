@@ -496,6 +496,8 @@ fn map_commit(commit: &Commit<'_>) -> CommitInfo {
     let message = commit.message().unwrap_or("").to_string();
     let message_short = commit
         .summary()
+        .ok()
+        .flatten()
         .map(|value| value.to_string())
         .unwrap_or_else(|| message.lines().next().unwrap_or("").to_string());
     let author = commit.author();

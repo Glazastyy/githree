@@ -58,7 +58,9 @@ pub fn default_branch(repo: &Repository) -> Result<String, AppError> {
 
     let shorthand = reference
         .symbolic_target()
-        .or_else(|| reference.name())
+        .ok()
+        .flatten()
+        .or_else(|| reference.name().ok())
         .and_then(|name| name.rsplit('/').next())
         .unwrap_or("main");
     Ok(shorthand.to_string())
