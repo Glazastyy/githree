@@ -115,7 +115,7 @@ What the installer does:
 - Detects Linux/macOS and checks required dependencies (`docker`, compose support)
 - Offers to install missing dependencies immediately when possible
 - Verifies Docker daemon availability (and helps start it)
-- If a full checkout is not found next to `install.sh`, it bootstraps source from `https://github.com/RibasSu/githree.git`
+- If a full checkout is not found next to `install.sh`, it bootstraps source from `https://github.com/Glazastyy/githree.git`
 - Prompts for ports, `RUST_LOG`, and optional Caddy reverse proxy setup
 - Generates runtime deployment files:
   - `.run/install/docker-compose.install.yml`
