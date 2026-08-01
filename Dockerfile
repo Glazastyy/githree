@@ -1,5 +1,5 @@
 # Stage 1: Build Rust backend
-FROM rust:1.94-slim-bookworm AS backend-builder
+FROM rust:1.97-slim-bookworm AS backend-builder
 WORKDIR /app/backend
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
