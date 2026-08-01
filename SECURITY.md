@@ -10,7 +10,7 @@ Please do not open public issues for security vulnerabilities.
 
 Instead, report privately to one of the following:
 
-- `andre@ribassu.com`
+- `github+githree@glazastyy.com`
 - `hi@smaia.dev`
 - `security@githree.org` (alias that forwards to both maintainers)
 
