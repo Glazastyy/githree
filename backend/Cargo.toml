@@ -30,4 +30,4 @@ url = "2"
 zip = { version = "8", default-features = false, features = ["deflate"] }
 
 [dev-dependencies]
-axum-test = "20"
+axum-test = "21"
