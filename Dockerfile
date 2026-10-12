@@ -1,5 +1,5 @@
 # Stage 1: Build Rust backend
-FROM rust:1.97-slim-bookworm AS backend-builder
+FROM rust:1.99-slim-bookworm AS backend-builder
 WORKDIR /app/backend
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
@@ -15,7 +15,7 @@ COPY backend/src ./src
 RUN cargo build --release
 
 # Stage 2: Build SvelteKit frontend with Bun
-FROM oven/bun:1.3.14 AS frontend-builder
+FROM oven/bun:1.4.2 AS frontend-builder
 WORKDIR /app/frontend
 
 COPY frontend/package.json frontend/bun.lock ./
